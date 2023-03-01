@@ -48,18 +48,19 @@ int main()
         ofs.close();
         cout << "Unesite broj N: ";
         cin >> n;
-        cout << "Ispis preko:\n";
-        cout << "Konzole                            |1|\n";
-        cout << ".txt fail (dosta brzi od koznole)  |2|\n";
-        if (n<10*10^6)
+        int opcija2;
+        if (n<=10000000)
         {
-            int opcija2;
+            cout << "Ispis preko:\n";
+            cout << "Konzole                            |1|\n";
+            cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
             cin >> opcija2;
             Sito v2;
-            vector<bool> prost = v2.eratostenovoSito(n);
+            vector<bool> prost = v2.eratostenovoSito(n,1024);
             switch (opcija2)
             {
             case 1:
+
                 for (long long int i = 2; i <= n; i++)
                 {
                     if (prost[i])
@@ -71,6 +72,7 @@ int main()
 
             case 2:
 
+                cin >> opcija2;
                 ofstream outputFile("izlaz.txt");
                 for (long long int i = 2; i <= n; i++)
                 {
@@ -80,22 +82,30 @@ int main()
                     }
                 }
                 outputFile.close();
+                cout << "Program je zavrsio sa radom\n";
                 break;
             }
             break;
         }
         else
         {
+            cout << "Ispis preko:\n";
+            cout << "Konzole                            |1|\n";
+            cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
+            int opcija2;
+            cin >> opcija2;
+            cout << endl;
             cout << "Brojevi veci od 10 miliona mogu zablokirati kompjuter\n";
             cout << "Da li zelis da nastavis?\n";
             cout << "DA |1|\n";
             cout << "NE |2|\n";
-            int opcija2;
-            cin >> opcija2;
+            int opcija3;
+            cin >> opcija3;
+            cout << endl;
             Sito v2;
-            if (opcija2==1)
+            if (opcija3==1)
             {
-                vector<bool> prost = v2.eratostenovoSito(n);
+                vector<bool> prost = v2.eratostenovoSito(n,1024);
                 switch (opcija2)
                 {
                 case 1:
@@ -119,6 +129,7 @@ int main()
                         }
                     }
                     outputFile.close();
+                    cout << "Program je zavrsio sa radom\n";
                     break;
                 }
                 break;
