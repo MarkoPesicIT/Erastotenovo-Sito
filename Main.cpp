@@ -93,33 +93,36 @@ int main()
             int opcija2;
             cin >> opcija2;
             Sito v2;
-            vector<bool> prost = v2.eratostenovoSito(n);
-            switch (opcija2)
+            if (opcija2==1)
             {
-            case 1:
-                for (int i = 2; i <= n; i++)
+                vector<bool> prost = v2.eratostenovoSito(n);
+                switch (opcija2)
                 {
-                    if (prost[i])
+                case 1:
+                    for (int i = 2; i <= n; i++)
                     {
-                        cout << i;
+                        if (prost[i])
+                        {
+                            cout << i;
+                        }
                     }
-                }
-                break;
+                    break;
 
-            case 2:
+                case 2:
 
-                ofstream outputFile("izlaz.txt");
-                for (int i = 2; i <= n; i++)
-                {
-                    if (prost[i])
+                    ofstream outputFile("izlaz.txt");
+                    for (int i = 2; i <= n; i++)
                     {
-                        outputFile << i << endl;
+                        if (prost[i])
+                        {
+                            outputFile << i << endl;
+                        }
                     }
+                    outputFile.close();
+                    break;
                 }
-                outputFile.close();
                 break;
             }
-            break;
         }
     }
     return 0;
