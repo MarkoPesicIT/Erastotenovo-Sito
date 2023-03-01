@@ -15,7 +15,6 @@ int main()
     cout << "Da li je uneti broj prost      |1|" << endl;
     cout << "Svi prosti brojevi do n        |2|" << endl;
     cin >> opcija;
-
     switch (opcija)
     {
     case 1:
@@ -49,6 +48,9 @@ int main()
         cout << "Unesite broj N: ";
         cin >> n;
         int opcija2;
+        int brojtredova;
+        cout << "Broj thredova koji ce program da koristi (napisi 4 ako nisi siguran o cemu pricam)";
+        cin >> brojtredova;
         if (n<=10000000)
         {
             cout << "Ispis preko:\n";
@@ -56,7 +58,7 @@ int main()
             cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
             cin >> opcija2;
             Sito v2;
-            vector<bool> prost = v2.eratostenovoSito(n,1024);
+            vector<bool> prost = v2.eratostenovoSito(n,brojtredova);
             switch (opcija2)
             {
             case 1:
@@ -105,7 +107,7 @@ int main()
             Sito v2;
             if (opcija3==1)
             {
-                vector<bool> prost = v2.eratostenovoSito(n,1024);
+                vector<bool> prost = v2.eratostenovoSito(n,brojtredova);
                 switch (opcija2)
                 {
                 case 1:
