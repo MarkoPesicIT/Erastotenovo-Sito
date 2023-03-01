@@ -44,6 +44,8 @@ int main()
 
     case 2:
 
+        ofstream ofs("izlaz.txt", ios::out | ios::trunc);
+        ofs.close();
         cout << "Unesite broj N: ";
         cin >> n;
         cout << "Ispis preko:\n";
