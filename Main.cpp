@@ -2,10 +2,12 @@
 #include <vector>
 #include <cmath>
 #include <fstream>
+#include <chrono>
 #include "Sito.h"
 #include "NZD.h"
 
 using namespace std;
+using namespace std::chrono;
 
 int main()
 {
@@ -15,9 +17,8 @@ int main()
     cout << "Da li je uneti broj prost      |1|" << endl;
     cout << "Svi prosti brojevi do n        |2|" << endl;
     cin >> opcija;
-    switch (opcija)
+    if (opcija == 1)
     {
-    case 1:
 
         cout << "Unesite broj: ";
         cin >> n;
@@ -39,30 +40,29 @@ int main()
             }
             cout << endl;
         }
-        break;
-
-    case 2:
-
+    }
+    else if(opcija==2)
+    {
         ofstream ofs("izlaz.txt", ios::out | ios::trunc);
         ofs.close();
         cout << "Unesite broj N: ";
         cin >> n;
-        int opcija2;
         int brojtredova;
         cout << "Broj thredova koji ce program da koristi (stavi 4 ako nisi siguran o cemu pricam): ";
         cin >> brojtredova;
-        if (n<=10000000)
+        if (n<10000000)
         {
             cout << "Ispis preko:\n";
             cout << "Konzole                            |1|\n";
             cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
-            cin >> opcija2;
+            int opcija4;
+            cin >> opcija4;
             Sito v2;
             vector<bool> prost = v2.eratostenovoSito(n,brojtredova);
-            switch (opcija2)
+            if (opcija4 == 1)
             {
-            case 1:
 
+                auto start = high_resolution_clock::now();
                 for (long long int i = 2; i <= n; i++)
                 {
                     if (prost[i])
@@ -70,11 +70,13 @@ int main()
                         cout << i;
                     }
                 }
-                break;
-
-            case 2:
-
-                cin >> opcija2;
+                auto stop = high_resolution_clock::now();
+                auto trajanje = duration_cast<milliseconds>(stop - start);
+                cout << "Za izvrsavanje prograna potrebno je bilo: " << trajanje.count() << " milisekundi" << endl;
+            }
+            else if(opcija4==2)
+            {
+                auto start = high_resolution_clock::now();
                 ofstream outputFile("izlaz.txt");
                 for (long long int i = 2; i <= n; i++)
                 {
@@ -85,17 +87,13 @@ int main()
                 }
                 outputFile.close();
                 cout << "Program je zavrsio sa radom\n";
-                break;
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<milliseconds>(stop - start);
+                cout << "Za izvrsavanje prograna potrebno je bilo: " << duration.count() << " milisekundi" << endl;
             }
-            break;
         }
         else
         {
-            cout << "Ispis preko:\n";
-            cout << "Konzole                            |1|\n";
-            cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
-            int opcija2;
-            cin >> opcija2;
             cout << endl;
             cout << "Brojevi veci od 10 miliona mogu zablokirati kompjuter\n";
             cout << "Da li zelis da nastavis?\n";
@@ -107,10 +105,15 @@ int main()
             Sito v2;
             if (opcija3==1)
             {
+                cout << "Ispis preko:\n";
+                cout << "Konzole                            |1|\n";
+                cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
+                int opcija2;
+                cin >> opcija2;
                 vector<bool> prost = v2.eratostenovoSito(n,brojtredova);
-                switch (opcija2)
+                if (opcija2 == 1)
                 {
-                case 1:
+                    auto start = high_resolution_clock::now();
                     for (long long int i = 2; i <= n; i++)
                     {
                         if (prost[i])
@@ -118,10 +121,13 @@ int main()
                             cout << i;
                         }
                     }
-                    break;
-
-                case 2:
-
+                    auto stop = high_resolution_clock::now();
+                    auto duration = duration_cast<milliseconds>(stop - start);
+                    cout << "Za izvrsavanje prograna potrebno je bilo: " << duration.count() << " milisekundi" << endl;
+                }
+                else if(opcija2==2)
+                { 
+                    auto start = high_resolution_clock::now();
                     ofstream outputFile("izlaz.txt");
                     for (long long int i = 2; i <= n; i++)
                     {
@@ -132,9 +138,10 @@ int main()
                     }
                     outputFile.close();
                     cout << "Program je zavrsio sa radom\n";
-                    break;
+                    auto stop = high_resolution_clock::now();
+                    auto duration = duration_cast<milliseconds>(stop - start);
+                    cout << "Za izvrsavanje prograna potrebno je bilo: " << duration.count() << " milisekundi" << endl;
                 }
-                break;
             }
         }
     }
