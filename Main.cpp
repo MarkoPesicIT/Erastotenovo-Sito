@@ -60,7 +60,7 @@ int main()
             switch (opcija2)
             {
             case 1:
-                for (int i = 2; i <= n; i++)
+                for (long long i = 2; i <= n; i++)
                 {
                     if (prost[i])
                     {
@@ -72,7 +72,7 @@ int main()
             case 2:
 
                 ofstream outputFile("izlaz.txt");
-                for (int i = 2; i <= n; i++)
+                for (long long i = 2; i <= n; i++)
                 {
                     if (prost[i])
                     {
@@ -99,7 +99,7 @@ int main()
                 switch (opcija2)
                 {
                 case 1:
-                    for (int i = 2; i <= n; i++)
+                    for (long long i = 2; i <= n; i++)
                     {
                         if (prost[i])
                         {
@@ -111,7 +111,7 @@ int main()
                 case 2:
 
                     ofstream outputFile("izlaz.txt");
-                    for (int i = 2; i <= n; i++)
+                    for (long long i = 2; i <= n; i++)
                     {
                         if (prost[i])
                         {
