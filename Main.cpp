@@ -49,7 +49,7 @@ int main()
         cin >> n;
         int opcija2;
         int brojtredova;
-        cout << "Broj thredova koji ce program da koristi (stavi 4 ako nisi siguran o cemu pricam):\t";
+        cout << "Broj thredova koji ce program da koristi (stavi 4 ako nisi siguran o cemu pricam): ";
         cin >> brojtredova;
         if (n<=10000000)
         {
