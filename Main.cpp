@@ -88,8 +88,8 @@ int main()
                 outputFile.close();
                 cout << "Program je zavrsio sa radom\n";
                 auto stop = high_resolution_clock::now();
-                auto duration = duration_cast<milliseconds>(stop - start);
-                cout << "Za izvrsavanje prograna potrebno je bilo: " << duration.count() << " milisekundi" << endl;
+                auto trajanje = duration_cast<milliseconds>(stop - start);
+                cout << "Za izvrsavanje prograna potrebno je bilo: " << trajanje.count() << " milisekundi" << endl;
             }
         }
         else
@@ -122,8 +122,8 @@ int main()
                         }
                     }
                     auto stop = high_resolution_clock::now();
-                    auto duration = duration_cast<milliseconds>(stop - start);
-                    cout << "Za izvrsavanje prograna potrebno je bilo: " << duration.count() << " milisekundi" << endl;
+                    auto trajanje = duration_cast<milliseconds>(stop - start);
+                    cout << "Za izvrsavanje prograna potrebno je bilo: " << trajanje.count() << " milisekundi" << endl;
                 }
                 else if(opcija2==2)
                 { 
@@ -139,8 +139,8 @@ int main()
                     outputFile.close();
                     cout << "Program je zavrsio sa radom\n";
                     auto stop = high_resolution_clock::now();
-                    auto duration = duration_cast<milliseconds>(stop - start);
-                    cout << "Za izvrsavanje prograna potrebno je bilo: " << duration.count() << " milisekundi" << endl;
+                    auto trajanje = duration_cast<milliseconds>(stop - start);
+                    cout << "Za izvrsavanje prograna potrebno je bilo: " << trajanje.count() << " milisekundi" << endl;
                 }
             }
         }
