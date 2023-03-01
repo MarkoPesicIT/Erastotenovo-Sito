@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     int opcija;
-    long long n;
+    long long int n;
     cout << "Izaberite opciju:" << endl;
     cout << "Da li je uneti broj prost      |1|" << endl;
     cout << "Svi prosti brojevi do n        |2|" << endl;
