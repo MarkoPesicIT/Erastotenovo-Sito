@@ -3,11 +3,12 @@
 #include <cmath>
 #include <fstream>
 #include <chrono>
+
 #include "Sito.h"
 #include "NZD.h"
 
 using namespace std;
-using namespace std::chrono;
+using namespace chrono;
 
 int main()
 {
@@ -47,9 +48,6 @@ int main()
         ofs.close();
         cout << "Unesite broj N: ";
         cin >> n;
-        int brojtredova;
-        cout << "Broj thredova koji ce program da koristi (stavi 4 ako nisi siguran o cemu pricam): ";
-        cin >> brojtredova;
         if (n<10000000)
         {
             cout << "Ispis preko:\n";
@@ -58,7 +56,7 @@ int main()
             int opcija4;
             cin >> opcija4;
             Sito v2;
-            vector<bool> prost = v2.eratostenovoSito(n,brojtredova);
+            vector<bool> prost = v2.eratostenovoSito(n);
             if (opcija4 == 1)
             {
 
@@ -110,7 +108,7 @@ int main()
                 cout << ".txt fajl (dosta brzi od koznole)  |2|\n";
                 int opcija2;
                 cin >> opcija2;
-                vector<bool> prost = v2.eratostenovoSito(n,brojtredova);
+                vector<bool> prost = v2.eratostenovoSito(n);
                 if (opcija2 == 1)
                 {
                     auto start = high_resolution_clock::now();
