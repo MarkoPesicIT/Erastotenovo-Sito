@@ -48,7 +48,7 @@ int main()
         ofs.close();
         cout << "Unesite broj N: ";
         cin >> n;
-        if (n<10000000)
+        if (n<1*10^6)
         {
             cout << "Ispis preko:\n";
             cout << "Konzole                            |1|\n";
